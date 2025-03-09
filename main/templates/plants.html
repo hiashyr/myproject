@@ -1,0 +1,49 @@
+{% extends 'base_htmls/base.html' %}
+{% load static %}
+
+{% block title %}Растения{% endblock %}
+
+{% block header %}Растения{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="my-4">Наши растения</h2>
+        <div class="row">
+            <!-- Карточка 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/ficus.jpg' %}" class="card-img-top" alt="Фикус">
+                    <div class="card-body">
+                        <h5 class="card-title">Фикус</h5>
+                        <p class="card-text">Яркий свет, умеренный полив.</p>
+                        <a href="#" class="btn btn-primary">Купить</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/cactus.jpg' %}" class="card-img-top" alt="Кактус">
+                    <div class="card-body">
+                        <h5 class="card-title">Кактус</h5>
+                        <p class="card-text">Прямой свет, редкий полив.</p>
+                        <a href="#" class="btn btn-primary">Купить</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/monstera.jpg' %}" class="card-img-top" alt="Монстера">
+                    <div class="card-body">
+                        <h5 class="card-title">Монстера</h5>
+                        <p class="card-text">Рассеянный свет, обильный полив.</p>
+                        <a href="#" class="btn btn-primary">Купить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

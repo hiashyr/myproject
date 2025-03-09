@@ -60,3 +60,6 @@ def about(request):
 
 def tips(request):
     return render(request, 'tips.html')
+
+def plants(request):
+    return render(request, './plants.html')
