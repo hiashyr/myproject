@@ -6,6 +6,21 @@
 {% block header %}Главная страница{% endblock %}
 
 {% block content %}
+    <!-- Форма для ввода названия файла -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="filename">Введите название файла:</label>
+        <input type="text" id="filename" name="filename" required>
+        <button type="submit">Загрузить файл</button>
+    </form>
+
+    <!-- Блок для отображения содержимого файла -->
+    {% if file_content %}
+        <h2>Содержимое файла:</h2>
+        <pre>{{ file_content }}</pre>
+    {% endif %}
+
+    <!-- Отображение информации о растениях -->
     {% for plant in plants %}
         <div>
             {% if plant.show %}

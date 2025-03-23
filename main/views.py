@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import os
 
 def index(request):
     plants = [
@@ -37,9 +38,23 @@ def index(request):
         }
     ]
 
+    file_content = None
+    if request.method == 'POST':
+        filename = request.POST.get('filename')
+        file_path = os.path.join(os.path.dirname(__file__), '..', 'static', 'files', filename)
+        
+        try:
+            with open(file_path, 'r', encoding='utf-8') as file:
+                file_content = file.read()
+        except FileNotFoundError:
+            file_content = "Файл не найден."
+        except Exception as e:
+            file_content = f"Ошибка при чтении файла: {e}"
+
     context = {
         "page_name": "База знаний о домашних растениях",
-        "plants": plants
+        "plants": plants,
+        "file_content": file_content
     }
     return render(request, 'index.html', context)
 
